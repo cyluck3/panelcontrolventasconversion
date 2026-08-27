@@ -57,20 +57,9 @@ source venv/bin/activate
 
 ## 📦 Instalación
 
-1. **Clona o descarga este repositorio**:
-   ```bash
-   git clone <URL_DEL_REPOSITORIO>
-   cd <NOMBRE_DEL_DIRECTORIO>
-   ```
-
-2. **Instala las dependencias necesarias**:
+## **Instala las dependencias necesarias**:
    ```bash
    pip install streamlit pandas numpy plotly
-   ```
-
-   *(Opcional) Si cuentas con un archivo `requirements.txt`:*
-   ```bash
-   pip install -r requirements.txt
    ```
 
 ---
