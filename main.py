@@ -14,7 +14,7 @@ def load_data():
         "dates": np.random.choice(["Último año", "Últimos 3 meses", "Últimos 30 días"], size=total_users),
         "device_type": np.random.choice(["Teléfono", "Laptop", "Tablet"], size=total_users),
         "car_amount": np.random.randint(10, 201, size=total_users),
-        "completed_purchase": np.random.choice(["yes", "no"], size=total_users),
+        "completed_purchase": np.random.choice(["si", "no"], size=total_users),
         "coupon_usage": np.random.choice(["Frecuente", "Ocasional", "Nunca"], size=total_users)
     })
 
@@ -46,12 +46,12 @@ elif amount_range == "Mayor o igual a 100":
 
 # 4. Métricas Clave (KPIs)
 total_records = len(df_filtered)
-completed = (df_filtered["completed_purchase"] == "yes").sum()
+completed = (df_filtered["completed_purchase"] == "si").sum()
 canceled = (df_filtered["completed_purchase"] == "no").sum()
 
 perc_completed = round((completed / total_records * 100), 1) if total_records > 0 else 0
 perc_canceled = round((canceled / total_records * 100), 1) if total_records > 0 else 0
-total_sales = df_filtered[df_filtered["completed_purchase"] == "yes"]["car_amount"].sum()
+total_sales = df_filtered[df_filtered["completed_purchase"] == "si"]["car_amount"].sum()
 
 kpi1, kpi2, kpi3, kpi4 = st.columns(4)
 kpi1.metric("Ventas Totales", f"${total_sales:,.2f}")
@@ -72,7 +72,7 @@ with col_g1:
             x="device_type", 
             color="completed_purchase",
             barmode="group",
-            color_discrete_map={"yes": "#2ECC71", "no": "#E74C3C"},
+            color_discrete_map={"si": "#2ECC71", "no": "#E74C3C"},
             labels={"device_type": "Dispositivo", "completed_purchase": "Completada"},
             title="Comparativo de compras por tipo de dispositivo"
         )
@@ -86,7 +86,7 @@ with col_g2:
     if total_records > 0:
         # Ordenamos lógicamente los períodos
         period_order = ["Último año",  "Últimos 3 meses", "Últimos 30 días"]
-        sales_by_period = df_filtered[df_filtered["completed_purchase"] == "yes"].groupby("dates")["car_amount"].sum().reset_index()
+        sales_by_period = df_filtered[df_filtered["completed_purchase"] == "si"].groupby("dates")["car_amount"].sum().reset_index()
         sales_by_period['dates'] = pd.Categorical(sales_by_period['dates'], categories=period_order, ordered=True)
         sales_by_period = sales_by_period.sort_values('dates')
 
