@@ -72,7 +72,7 @@ with col_g1:
             x="device_type", 
             color="completed_purchase",
             barmode="group",
-            color_discrete_map={"Sí": "#2ECC71", "No": "#E74C3C"},
+            color_discrete_map={"Sí": "#2B7FFF", "No": "#4A5568"},
             labels={"device_type": "Dispositivo", "completed_purchase": "Completada"},
             title="Comparativo de compras por tipo de dispositivo"
         )
