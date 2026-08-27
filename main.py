@@ -84,7 +84,6 @@ with col_g1:
 with col_g2:
     st.subheader("Tendencia de Ventas por Período")
     if total_records > 0:
-        # Ordenamos lógicamente los períodos
         period_order = ["Último año",  "Últimos 3 meses", "Últimos 30 días"]
         sales_by_period = df_filtered[df_filtered["completed_purchase"] == "Sí"].groupby("dates")["car_amount"].sum().reset_index()
         sales_by_period['dates'] = pd.Categorical(sales_by_period['dates'], categories=period_order, ordered=True)
