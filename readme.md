@@ -69,10 +69,9 @@ source venv/bin/activate
 Para iniciar el dashboard en tu navegador local, ejecuta el siguiente comando:
 
 ```bash
-streamlit run app.py
+streamlit run main.py
 ```
 
-*(Reemplaza `app.py` por el nombre de tu archivo principal si es diferente).*
 
 La aplicación se abrirá automáticamente en tu navegador predeterminado en `http://localhost:8501`.
 
@@ -84,6 +83,7 @@ La aplicación se abrirá automáticamente en tu navegador predeterminado en `ht
 .
 ├── main.py              # Código principal de la aplicación Streamlit
 └── README.md           # Documentación del proyecto
+└── requirements.txt     # Módulos para que funcione el proyecto
 ```
 
 ---
